@@ -1,22 +1,32 @@
 <script setup>
+import { ref, watch } from 'vue';
+import { defineProps, defineEmits } from 'vue';
 
+const props = defineProps({
+    modelValue: String
+});
+
+const emit = defineEmits(["update:modelValue"]);
+
+const searchTerm = ref(props.modelValue);
+watch(searchTerm, newValue => {
+    emit("update:modelValue", newValue);
+});
 </script>
 <template>
-    <section class="browserSection">
-        <div>
-            <input class="browserInput" type="text">
-        </div>
-    </section>
+    <div class="browser">
+        <input class="inputBrowser" v-model="searchTerm" type="text" placeholder="Filter your beer!">
+    </div>
 </template>
 <style lang="scss" scoped>
-.browserSection {
+.browser {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 90vw;
     height: 90vh;
 
-    .browserInput {
+    .inputBrowser {
         background-color: rgb(32, 32, 32);
         width: 80vw;
         height: 10vh;
