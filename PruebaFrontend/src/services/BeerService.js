@@ -3,7 +3,7 @@ import axios from "axios";
 
 class BeerService{
     beers;
-    url="https://api.punkapi.com/v2/beers";
+    url="https://api.punkapi.com/v2/beers?per_page=20";
 
     constructor(){
         this.beers = ref([]);

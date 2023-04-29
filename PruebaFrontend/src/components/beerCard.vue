@@ -1,53 +1,65 @@
 <script setup>
-    import { defineProps } from 'vue';
+import { defineProps } from 'vue';
 
-    const props = defineProps({
-        beer: Object,
-    });
+const props = defineProps({
+	beer: Object,
+});
 </script>
 <template>
-    <div class="card">
-        <img class="beerCardImg" :src="beer['image_url']" alt="">
-        <p class="beerCardName">{{ beer['name'] }}</p>
-        <p class="beerCardABV">ABV: {{ beer['abv'] }}</p>
-    </div>
+	<div class="card">
+		<img class="beerCardImg" :src="beer['image_url']" alt="">
+		<div class="infoCard">
+			<p class="beerCardName">{{ beer['name'] }}</p>
+			<p class="beerCardABV">ABV: {{ beer['abv'] }}</p>
+		</div>
+	</div>
 </template>
-<style lang="scss">
-    .card {
-		margin: 0 auto;
-		margin-bottom: 5em;
-		width: 15em;
+<style lang="scss" scoped>
+.card {
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 52vh;
+	width: 20vw;
+	margin-bottom: 5vh;
+
+	&:hover {
+		// height: 54vh;
+		// width: 22vw;
+		background-color: rgb(250, 250, 250);
+		border-color: rgb(248, 248, 248);
+		border: 5px;
+		-webkit-box-shadow: 6px 0px 6px 6px rgb(226, 219, 226);
+		-moz-box-shadow: 6px 6px 6px 6px rgb(226, 219, 226);
+		box-shadow: 0px 0px 6px 6px rgba(226, 219, 226, 1);
+		.infoCard{
+			background-color: rgb(180, 179, 179);
+		}
+	}
+
+	.beerCardImg {
+		height: 40vh;
+		margin-top: 2vh;
+		margin-bottom: 2vh;
+	}
+
+	.infoCard {
+		background-color: rgb(228, 225, 225);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		color: black;
-		padding: 0.5em;
-		text-align: center;
-		// border: 1px solid rgba(163, 153, 163, 0.3);
-		// -webkit-box-shadow: 0px 6px 6px 0px rgba(163, 153, 163, 1);
-		// -moz-box-shadow: 0px 6px 6px 0px rgba(163, 153, 163, 1);
-		// box-shadow: 0px 6px 6px 0px rgba(163, 153, 163, 1);
-	
-        .beerCardImg {
-			border-radius: 50%;
-			width: 50%;
-			height: 70%;
-			position: relative;
-			bottom: 65px;
-		}
+		width: 100%;
+		height: 100%;
 
 		.beerCardName {
-			position: relative;
-			bottom: 50px;
-			font-size: 1em;
+			font-weight: bolder;
 		}
 
-		.beerCardABV {
-			position: relative;
-			bottom: 45px;
-			font-size: 0.8em;
-			color: grey;
-		}
+		// .beerCardABV {
+
+		// }
 	}
+}
 </style>

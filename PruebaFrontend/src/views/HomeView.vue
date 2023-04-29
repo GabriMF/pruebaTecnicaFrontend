@@ -1,7 +1,7 @@
 <script setup>
 import { onBeforeMount, ref, computed } from 'vue';
 import BeerService from "../services/BeerService";
-import Browser from '../components/browserComp.vue'
+import Browser from '../components/browserComp.vue';
 import beerCard from '../components/beerCard.vue';
 
 const beerService = new BeerService();
@@ -19,26 +19,35 @@ const filteredBeers = computed(() => {
     beer['name'].toLowerCase().includes(searchBeer.value.toLowerCase())
   )
 })
-
 </script>
 
 <template>
-  <main>
+  <section>
     <Browser v-model="searchBeer" />
-    <beerCard v-for="beer in filteredBeers" :beer="beer" />
-  </main>
+    <div class="cardSection">
+      <beerCard v-for="beer in filteredBeers" :beer="beer" />
+    </div>
+  </section>
 </template>
 
-<style>
-/* main {
-  background-color: rgb(207, 0, 0);
-} */
+<style lang="scss">
+*{
+  margin: 0px;
+}
 
 section {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1em;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+
+  .cardSection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3vw;
+    // margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>

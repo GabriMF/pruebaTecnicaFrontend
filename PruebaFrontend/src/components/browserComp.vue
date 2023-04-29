@@ -24,7 +24,7 @@ watch(searchTerm, newValue => {
     justify-content: center;
     align-items: center;
     width: 90vw;
-    height: 90vh;
+    height: 30vh;
 
     .inputBrowser {
         background-color: rgb(32, 32, 32);
