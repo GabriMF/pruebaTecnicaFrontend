@@ -3,6 +3,7 @@ import { onBeforeMount, ref, computed } from 'vue';
 import BeerService from "../services/BeerService";
 import Browser from '../components/browserComp.vue';
 import beerCard from '../components/beerCard.vue';
+import detailsPopup from '../components/detailsPopup.vue';
 
 const beerService = new BeerService();
 const beers = ref([]);
@@ -24,9 +25,11 @@ const filteredBeers = computed(() => {
 <template>
   <section>
     <Browser v-model="searchBeer" />
-    <div class="cardSection">
+    <!-- <div class="cardSection">
       <beerCard v-for="beer in filteredBeers" :beer="beer" />
-    </div>
+    </div> -->
+
+    <detailsPopup />
   </section>
 </template>
 
@@ -45,7 +48,6 @@ section {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 3vw;
-    // margin: auto;
     justify-content: center;
     align-items: center;
   }

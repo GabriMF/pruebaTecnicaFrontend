@@ -36,6 +36,9 @@ const props = defineProps({
 		.infoCard{
 			background-color: rgb(180, 179, 179);
 		}
+		.beerCardImg{
+			height: 42vh;
+		}
 	}
 
 	.beerCardImg {
