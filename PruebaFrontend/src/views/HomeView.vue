@@ -25,11 +25,16 @@ const filteredBeers = computed(() => {
 <template>
   <section>
     <Browser v-model="searchBeer" />
-    <!-- <div class="cardSection">
+    <div class="cardSection">
       <beerCard v-for="beer in filteredBeers" :beer="beer" />
-    </div> -->
+    </div>
 
-    <detailsPopup />
+
+
+
+    <!-- <div class="cardSection">
+      <detailsPopup v-for="beer in filteredBeers" :beer="beer" />
+    </div>  -->
   </section>
 </template>
 
